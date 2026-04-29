@@ -10,6 +10,7 @@ export class WeddingInviteComponent implements OnInit {
   isOpen = false;
   scrollProgress = 0;
   showCountdown = false;
+  scrollPhase = 0; // 0: Hero, 1-3: Zoom, 4+: Countdown
   
   // Countdown values
   days = 0;
@@ -38,18 +39,50 @@ export class WeddingInviteComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   onScroll(): void {
     const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    this.scrollProgress = (scrollTop / docHeight) * 100;
-
-    // Apply zoom effect to background (parallax)
-    const zoomLevel = 1 + (this.scrollProgress / 100) * 0.3;
+    const spacerHeight = window.innerHeight; // One viewport height for zoom phase
+    const countdownTrigger = spacerHeight * 3;
+    
+    // Calculate zoom progress (0-3 scrolls = first 3 viewport heights)
+    const zoomScrollProgress = Math.min(scrollTop / spacerHeight, 3);
+    this.scrollPhase = Math.floor(zoomScrollProgress);
+    
+    // Apply zoom effect to background (0.3 scale over 3 viewport heights)
+    const zoomLevel = 1 + zoomScrollProgress * 0.1;
     const bgImage = document.querySelector('.background-image') as HTMLElement;
     if (bgImage) {
       bgImage.style.transform = `scale(${zoomLevel})`;
     }
 
-    // Show countdown after scrolling past the parallax phase
-    if (this.scrollProgress > 30) {
+    // Apply text fade out as you scroll
+    const content = document.querySelector('.content') as HTMLElement;
+    if (content) {
+      const opacity = Math.max(1 - zoomScrollProgress * 0.25, 0.3);
+      content.style.opacity = opacity.toString();
+      const scale = Math.max(1 - zoomScrollProgress * 0.1, 0.9);
+      content.style.transform = `scale(${scale})`;
+    }
+
+    // Release main-container from fixed positioning after parallax
+    const mainContainer = document.querySelector('.main-container') as HTMLElement;
+    if (mainContainer) {
+      if (scrollTop > countdownTrigger) {
+        mainContainer.style.position = 'absolute';
+        mainContainer.style.top = '0';
+        mainContainer.style.zIndex = '1';
+        mainContainer.style.pointerEvents = 'none';
+        mainContainer.style.visibility = 'hidden';
+        mainContainer.style.opacity = '0';
+      } else {
+        mainContainer.style.position = 'fixed';
+        mainContainer.style.zIndex = '10';
+        mainContainer.style.pointerEvents = 'auto';
+        mainContainer.style.visibility = 'visible';
+        mainContainer.style.opacity = '1';
+      }
+    }
+
+    // Show countdown after 3 scrolls
+    if (scrollTop > countdownTrigger) {
       this.showCountdown = true;
     }
   }

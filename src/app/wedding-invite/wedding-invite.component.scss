@@ -9,19 +9,25 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  height: auto;
 }
 
 html {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
+  scroll-behavior: smooth;
 }
 
 :host ::ng-deep body {
   font-family: 'Playfair Display', serif;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   background: #000;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .main-container {
@@ -33,12 +39,13 @@ html {
   top: 0;
   left: 0;
   z-index: 10;
+  transition: position 0.3s ease-out;
 }
 
 .background-image {
   position: absolute;
   inset: 0;
-  background: url('../../assets/couple.jpg') center center/100% 100% no-repeat;
+  background: url('../../assets/couple2.png') center center/100% 100% no-repeat;
   transform-origin: center center;
   transition: transform 0.1s ease-out;
 }
@@ -59,9 +66,9 @@ html {
   align-items: center;
   text-align: center;
   color: white;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 1.5s ease;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
   padding: 20px;
   justify-content: space-between;
 }
@@ -90,7 +97,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 60px;
+  margin-bottom: 15px;
 }
 
 .welcome {
@@ -186,7 +193,7 @@ html {
 
 .scroll-indicator {
   position: absolute;
-  bottom: 30px;
+  bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
@@ -227,8 +234,8 @@ html {
 
 /* Spacer for scrolling */
 .spacer-section {
-  height: 100vh;
-  background: #000;
+  height: 300vh;
+  background: linear-gradient(to bottom, #000 0%, #f5f5f5 100%);
   position: relative;
   z-index: 9;
 }
@@ -236,7 +243,7 @@ html {
 /* Countdown Section */
 .countdown-section {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
   padding: 80px 20px;
   display: flex;
   align-items: center;
@@ -259,7 +266,7 @@ html {
 .countdown-title {
   font-family: 'Allura', cursive;
   font-size: 4rem;
-  color: #f5d27a;
+  color: #1a1a1a;
   margin-bottom: 60px;
   font-weight: 400;
   letter-spacing: 1px;
@@ -273,14 +280,15 @@ html {
 }
 
 .countdown-box {
-  background: rgba(245, 210, 122, 0.08);
-  border: 2px solid rgba(245, 210, 122, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(26, 26, 26, 0.2);
   border-radius: 15px;
   padding: 30px 15px;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   animation: slideUp 0.8s ease-out forwards;
   opacity: 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .countdown-box:nth-child(1) {
@@ -300,9 +308,10 @@ html {
 }
 
 .countdown-box:hover {
-  background: rgba(245, 210, 122, 0.15);
-  border-color: rgba(245, 210, 122, 0.6);
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(26, 26, 26, 0.4);
   transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 .countdown-value {
@@ -318,7 +327,7 @@ html {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #b0b0b0;
+  color: #333;
   font-family: 'Playfair Display', serif;
   font-weight: 300;
 }
@@ -483,6 +492,7 @@ html {
   .countdown-title {
     font-size: 3rem;
     margin-bottom: 50px;
+    color: #1a1a1a;
   }
 
   .countdown-grid {
@@ -492,6 +502,8 @@ html {
 
   .countdown-box {
     padding: 25px 12px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(26, 26, 26, 0.15);
   }
 
   .countdown-value {
@@ -500,6 +512,7 @@ html {
 
   .countdown-label {
     font-size: 0.8rem;
+    color: #333;
   }
 
   .scroll-arrow {
@@ -526,26 +539,27 @@ html {
   .welcome {
     font-size: 0.8rem;
     letter-spacing: 2px;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
   }
 
   .content-top {
-    margin-top: 30px;
+    margin-top: 25px;
   }
 
   .content-middle {
-    margin-top: 25px;
+    margin-top: 15px;
+    gap: 5px;
   }
 
   .names {
     font-size: 2.5rem;
-    margin: 2px 0;
+    margin: 1px 0;
     font-weight: 300;
   }
 
   .elegant-divider {
     gap: 8px;
-    margin: 10px auto;
+    margin: 8px auto;
   }
 
   .line-left,
@@ -563,6 +577,7 @@ html {
 
   .date-section {
     font-size: 0.95rem;
+    margin-top: 10px;
   }
 
   .calendar-icon {
@@ -571,11 +586,13 @@ html {
 
   .countdown-section {
     padding: 60px 15px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
   }
 
   .countdown-title {
     font-size: 2.5rem;
     margin-bottom: 40px;
+    color: #1a1a1a;
   }
 
   .countdown-grid {
@@ -585,6 +602,8 @@ html {
 
   .countdown-box {
     padding: 20px 10px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(26, 26, 26, 0.15);
   }
 
   .countdown-value {
@@ -593,6 +612,7 @@ html {
 
   .countdown-label {
     font-size: 0.75rem;
+    color: #333;
   }
 
   .scroll-arrow {
@@ -604,14 +624,14 @@ html {
   }
 
   .scroll-indicator {
-    bottom: 20px;
+    bottom: 12px;
   }
 
   .content {
-    padding: 15px;
+    padding: 10px 12px;
   }
 
   .content-bottom {
-    margin-bottom: 50px;
+    margin-bottom: 5px;
   }
 }
