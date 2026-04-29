@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { WeddingInviteComponent } from './wedding-invite.component';
 
 describe('WeddingInviteComponent', () => {
