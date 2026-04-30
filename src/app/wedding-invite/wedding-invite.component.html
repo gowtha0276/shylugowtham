@@ -43,7 +43,7 @@
 <div class="spacer-section" [class.pre-open]="!isOpen"></div>
 
 <!-- Countdown Timer Section -->
-<div class="countdown-section" [class.show]="showCountdown" [class.pre-open]="!isOpen">
+<section class="countdown-section" [class.show]="showCountdown" [class.pre-open]="!isOpen">
   <div class="countdown-container">
     <h2 class="countdown-title">Counting down to forever</h2>
     <div class="elegant-divider">
@@ -79,7 +79,38 @@
       </div>
     </div>
   </div>
-</div>
+</section>
+
+<!-- Timeline Section -->
+<section class="timeline-section" [class.pre-open]="!isOpen">
+  <div class="timeline-container">
+    <div class="timeline-icon" aria-hidden="true">🗓️</div>
+    <h2 class="timeline-label">Timeline</h2>
+    <div class="elegant-divider">
+      <div class="line-left"></div>
+      <div class="tiny-heart">♥</div>
+      <div class="line-right"></div>
+    </div>
+
+    <div class="timeline-flow">
+      <div class="timeline-entry">
+        <div class="timeline-date">June 17th</div>
+        <div class="timeline-events">
+          <div class="timeline-detail">9 AM to 3 PM: Rituals</div>
+          <div class="timeline-detail">6 PM to 9 PM: Reception</div>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="timeline-date">June 18th</div>
+        <div class="timeline-events">
+          <div class="timeline-detail">7 AM to 9 AM: Wedding Ceremony</div>
+          <div class="timeline-detail">12 PM to 2 PM: Lunch</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Venue Section -->
 <section class="venue-section" [class.pre-open]="!isOpen">
