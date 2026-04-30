@@ -32,7 +32,7 @@ html {
 
 .main-container {
   position: fixed;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   background: #000;
@@ -45,7 +45,7 @@ html {
 .background-image {
   position: absolute;
   inset: 0;
-  background: url('../../assets/couple2.png') center center/100% 100% no-repeat;
+  background: url('../../assets/couple2.webp') center center/100% 100% no-repeat;
   transform-origin: center center;
   transition: transform 0.1s ease-out;
 }
@@ -243,7 +243,7 @@ html {
 /* Countdown Section */
 .countdown-section {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  background: linear-gradient(135deg, #efefef 0%, #e0e0e0 100%);
   padding: 80px 20px;
   display: flex;
   align-items: center;
@@ -260,35 +260,42 @@ html {
 
 .countdown-container {
   text-align: center;
-  max-width: 600px;
+  max-width: 900px;
+  width: 100%;
 }
 
 .countdown-title {
   font-family: 'Allura', cursive;
-  font-size: 4rem;
-  color: #1a1a1a;
-  margin-bottom: 60px;
+  font-size: 1.8rem;
+  color: #2a2a2a;
+  margin-bottom: 80px;
   font-weight: 400;
-  letter-spacing: 1px;
+  letter-spacing: 0px;
+  white-space: nowrap;
 }
 
 .countdown-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 15px;
   margin-bottom: 40px;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
 }
 
 .countdown-box {
-  background: rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(26, 26, 26, 0.2);
-  border-radius: 15px;
-  padding: 30px 15px;
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(200, 200, 200, 0.5);
+  border-radius: 8px;
+  padding: 25px 15px 15px 15px;
+  backdrop-filter: blur(5px);
   transition: all 0.3s ease;
   animation: slideUp 0.8s ease-out forwards;
   opacity: 0;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  min-width: 80px;
+  flex: 0 0 auto;
 }
 
 .countdown-box:nth-child(1) {
@@ -308,26 +315,26 @@ html {
 }
 
 .countdown-box:hover {
-  background: rgba(255, 255, 255, 1);
-  border-color: rgba(26, 26, 26, 0.4);
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(180, 180, 180, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 .countdown-value {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
-  color: #f5d27a;
+  color: #9b8b5c;
   line-height: 1;
   margin-bottom: 10px;
   font-family: 'Playfair Display', serif;
 }
 
 .countdown-label {
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #333;
+  letter-spacing: 1px;
+  color: #888;
   font-family: 'Playfair Display', serif;
   font-weight: 300;
 }

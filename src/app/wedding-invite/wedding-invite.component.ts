@@ -38,9 +38,15 @@ export class WeddingInviteComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onScroll(): void {
+    // Only process scroll if the curtain has been opened
+    if (!this.isOpen) {
+      this.showCountdown = false;
+      return;
+    }
+
     const scrollTop = window.scrollY;
     const spacerHeight = window.innerHeight; // One viewport height for zoom phase
-    const countdownTrigger = spacerHeight * 3;
+    const countdownTrigger = spacerHeight * 2.5; // Trigger slightly earlier for better UX
     
     // Calculate zoom progress (0-3 scrolls = first 3 viewport heights)
     const zoomScrollProgress = Math.min(scrollTop / spacerHeight, 3);
@@ -81,9 +87,11 @@ export class WeddingInviteComponent implements OnInit {
       }
     }
 
-    // Show countdown after 3 scrolls
+    // Show countdown after scrolling (trigger earlier for better visibility)
     if (scrollTop > countdownTrigger) {
       this.showCountdown = true;
+    } else {
+      this.showCountdown = false;
     }
   }
 
