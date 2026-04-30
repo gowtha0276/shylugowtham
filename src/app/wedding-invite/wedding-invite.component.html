@@ -40,30 +40,86 @@
 </div>
 
 <!-- Spacer for scrolling -->
-<div class="spacer-section"></div>
+<div class="spacer-section" [class.pre-open]="!isOpen"></div>
 
 <!-- Countdown Timer Section -->
-<div class="countdown-section" [class.show]="showCountdown">
+<div class="countdown-section" [class.show]="showCountdown" [class.pre-open]="!isOpen">
   <div class="countdown-container">
     <h2 class="countdown-title">Counting down to forever</h2>
+    <div class="elegant-divider">
+      <div class="line-left"></div>
+      <div class="tiny-heart">♥</div>
+      <div class="line-right"></div>
+    </div>
     
     <div class="countdown-grid">
-      <div class="countdown-box">
-        <div class="countdown-value">{{ days }}</div>
+      <div class="countdown-item">
+        <div class="countdown-box">
+          <div class="countdown-value">{{ days }}</div>
+        </div>
         <div class="countdown-label">Days</div>
       </div>
-      <div class="countdown-box">
-        <div class="countdown-value">{{ hours }}</div>
+      <div class="countdown-item">
+        <div class="countdown-box">
+          <div class="countdown-value">{{ hours }}</div>
+        </div>
         <div class="countdown-label">Hours</div>
       </div>
-      <div class="countdown-box">
-        <div class="countdown-value">{{ minutes }}</div>
+      <div class="countdown-item">
+        <div class="countdown-box">
+          <div class="countdown-value">{{ minutes }}</div>
+        </div>
         <div class="countdown-label">Minutes</div>
       </div>
-      <div class="countdown-box">
-        <div class="countdown-value">{{ seconds }}</div>
+      <div class="countdown-item">
+        <div class="countdown-box">
+          <div class="countdown-value">{{ seconds }}</div>
+        </div>
         <div class="countdown-label">Seconds</div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Venue Section -->
+<section class="venue-section" [class.pre-open]="!isOpen">
+  <div class="venue-container">
+    <h2 class="venue-label">Venue</h2>
+    <div class="elegant-divider">
+      <div class="line-left"></div>
+      <div class="tiny-heart">♥</div>
+      <div class="line-right"></div>
+    </div>
+
+    <div class="venue-name">Sri Plus Thirumana Mahal</div>
+    <div class="venue-address">Kovai Main Road, Perundurai</div>
+
+    <div class="venue-map-frame">
+      <iframe
+        class="venue-map-embed"
+        title="Sri Plus Thirumana Mahal location on Google Maps"
+        src="https://www.google.com/maps?q=Sri%20Plus%20Thirumana%20Mahal%2C%20Kovai%20Main%20Road%2C%20Perundurai&z=16&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
+    <a
+      class="venue-map-link"
+      href="https://www.google.com/maps/search/?api=1&query=Sri+Plus+Thirumana+Mahal+Kovai+Main+Road+Perundurai"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Open Sri Plus Thirumana Mahal in Google Maps"
+    >
+      Open in Google Maps
+    </a>
+  </div>
+</section>
+
+<!-- Closing Message Section -->
+<section class="closing-section" [class.pre-open]="!isOpen">
+  <div class="closing-container">
+    <p class="closing-message">We cannot wait to celebrate with you</p>
+    <p class="closing-signoff">Gowtham and Shylu</p>
+  </div>
+</section>

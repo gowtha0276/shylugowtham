@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-wedding-invite',
@@ -6,7 +6,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./wedding-invite.component.scss'],
   standalone: true
 })
-export class WeddingInviteComponent implements OnInit {
+export class WeddingInviteComponent implements OnInit, OnDestroy {
   isOpen = false;
   scrollProgress = 0;
   showCountdown = false;
@@ -19,14 +19,22 @@ export class WeddingInviteComponent implements OnInit {
   seconds = 0;
 
   ngOnInit(): void {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    document.body.style.overflowY = 'hidden';
+
     this.updateCountdown();
     setInterval(() => {
       this.updateCountdown();
     }, 1000);
   }
 
+  ngOnDestroy(): void {
+    document.body.style.overflowY = 'auto';
+  }
+
   openCurtain(): void {
     this.isOpen = true;
+    document.body.style.overflowY = 'auto';
 
     setTimeout(() => {
       const contentBox = document.querySelector('.content');

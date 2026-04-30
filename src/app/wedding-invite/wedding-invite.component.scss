@@ -10,6 +10,8 @@
   padding: 0;
   width: 100%;
   height: auto;
+  --section-bg: linear-gradient(135deg, #efefef 0%, #e0e0e0 100%);
+  --section-bg-mobile: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
 }
 
 html {
@@ -240,11 +242,16 @@ html {
   z-index: 9;
 }
 
+.spacer-section.pre-open {
+  height: 0;
+  overflow: hidden;
+}
+
 /* Countdown Section */
 .countdown-section {
   min-height: 100vh;
-  background: linear-gradient(135deg, #efefef 0%, #e0e0e0 100%);
-  padding: 80px 20px;
+  background: var(--section-bg);
+  padding: 90px 20px 110px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -254,8 +261,136 @@ html {
   z-index: 11;
 }
 
+.countdown-section.pre-open,
+.venue-section.pre-open,
+.closing-section.pre-open {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  min-height: 0;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
 .countdown-section.show {
   opacity: 1;
+}
+
+.venue-section {
+  min-height: 100vh;
+  padding: 90px 20px 110px;
+  background: var(--section-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 11;
+}
+
+.venue-container {
+  width: min(840px, 100%);
+  text-align: center;
+}
+
+.venue-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #6d6d6d;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.venue-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3.8vw, 2.4rem);
+  color: #2a2a2a;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.venue-address {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 2.3vw, 1.25rem);
+  color: #666;
+  letter-spacing: 0.4px;
+  margin-bottom: 34px;
+}
+
+.venue-map-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 22px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(180, 180, 180, 0.6);
+  background: rgba(255, 255, 255, 0.9);
+  color: #555;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
+}
+
+.venue-map-link:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(180, 180, 180, 0.6);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.venue-map-frame {
+  width: min(760px, 92%);
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(200, 200, 200, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+.venue-map-embed {
+  width: 100%;
+  display: block;
+  aspect-ratio: 12 / 7;
+  border: 0;
+}
+
+.closing-section {
+  min-height: 60vh;
+  padding: 90px 20px 120px;
+  background: var(--section-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 11;
+}
+
+.closing-container {
+  width: min(780px, 100%);
+}
+
+.closing-message {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 2.8vw, 1.8rem);
+  color: #3a3a3a;
+  margin-bottom: 18px;
+  line-height: 1.45;
+}
+
+.closing-signoff {
+  font-family: 'Allura', cursive;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  color: #9b8b5c;
+  line-height: 1.2;
 }
 
 .countdown-container {
@@ -266,12 +401,17 @@ html {
 
 .countdown-title {
   font-family: 'Allura', cursive;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #2a2a2a;
-  margin-bottom: 80px;
+  margin-bottom: 12px;
   font-weight: 400;
   letter-spacing: 0px;
   white-space: nowrap;
+}
+
+.countdown-container .elegant-divider {
+  margin: 6px auto 22px;
+  padding: 0;
 }
 
 .countdown-grid {
@@ -284,11 +424,18 @@ html {
   overflow-x: hidden;
 }
 
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
 .countdown-box {
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(200, 200, 200, 0.5);
   border-radius: 8px;
-  padding: 25px 15px 15px 15px;
+  padding: 22px 14px;
   backdrop-filter: blur(5px);
   transition: all 0.3s ease;
   animation: slideUp 0.8s ease-out forwards;
@@ -298,19 +445,19 @@ html {
   flex: 0 0 auto;
 }
 
-.countdown-box:nth-child(1) {
+.countdown-item:nth-child(1) .countdown-box {
   animation-delay: 0.1s;
 }
 
-.countdown-box:nth-child(2) {
+.countdown-item:nth-child(2) .countdown-box {
   animation-delay: 0.2s;
 }
 
-.countdown-box:nth-child(3) {
+.countdown-item:nth-child(3) .countdown-box {
   animation-delay: 0.3s;
 }
 
-.countdown-box:nth-child(4) {
+.countdown-item:nth-child(4) .countdown-box {
   animation-delay: 0.4s;
 }
 
@@ -326,11 +473,11 @@ html {
   font-weight: 700;
   color: #9b8b5c;
   line-height: 1;
-  margin-bottom: 10px;
   font-family: 'Playfair Display', serif;
 }
 
 .countdown-label {
+  margin-top: 8px;
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -497,9 +644,13 @@ html {
   }
 
   .countdown-title {
-    font-size: 3rem;
-    margin-bottom: 50px;
+    font-size: 2.4rem;
+    margin-bottom: 10px;
     color: #1a1a1a;
+  }
+
+  .countdown-container .elegant-divider {
+    margin: 4px auto 18px;
   }
 
   .countdown-grid {
@@ -507,8 +658,12 @@ html {
     gap: 15px;
   }
 
+  .countdown-item {
+    min-width: 78px;
+  }
+
   .countdown-box {
-    padding: 25px 12px;
+    padding: 20px 12px;
     background: rgba(255, 255, 255, 0.95);
     border: 2px solid rgba(26, 26, 26, 0.15);
   }
@@ -520,6 +675,39 @@ html {
   .countdown-label {
     font-size: 0.8rem;
     color: #333;
+  }
+
+  .venue-section {
+    padding: 70px 16px 90px;
+    min-height: auto;
+  }
+
+  .venue-label {
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+  }
+
+  .venue-address {
+    margin-bottom: 24px;
+  }
+
+  .venue-map-link {
+    margin-top: 18px;
+    padding: 11px 20px;
+    font-size: 0.95rem;
+  }
+
+  .venue-map-frame {
+    border-radius: 14px;
+  }
+
+  .closing-section {
+    min-height: 50vh;
+    padding: 70px 16px 90px;
+  }
+
+  .closing-message {
+    margin-bottom: 14px;
   }
 
   .scroll-arrow {
@@ -592,14 +780,22 @@ html {
   }
 
   .countdown-section {
-    padding: 60px 15px;
-    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    padding: 58px 14px 76px;
+    background: var(--section-bg-mobile);
+  }
+
+  .venue-section {
+    background: var(--section-bg-mobile);
   }
 
   .countdown-title {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+    font-size: 2.1rem;
+    margin-bottom: 8px;
     color: #1a1a1a;
+  }
+
+  .countdown-container .elegant-divider {
+    margin: 2px auto 14px;
   }
 
   .countdown-grid {
@@ -607,8 +803,12 @@ html {
     gap: 12px;
   }
 
+  .countdown-item {
+    min-width: 70px;
+  }
+
   .countdown-box {
-    padding: 20px 10px;
+    padding: 16px 10px;
     background: rgba(255, 255, 255, 0.95);
     border: 2px solid rgba(26, 26, 26, 0.15);
   }
@@ -620,6 +820,40 @@ html {
   .countdown-label {
     font-size: 0.75rem;
     color: #333;
+  }
+
+  .venue-section {
+    padding: 58px 14px 76px;
+  }
+
+  .venue-label {
+    font-size: 0.8rem;
+    letter-spacing: 2.5px;
+  }
+
+  .venue-name {
+    font-size: 1.45rem;
+  }
+
+  .venue-address {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .venue-map-link {
+    margin-top: 16px;
+    padding: 10px 18px;
+    font-size: 0.92rem;
+  }
+
+  .venue-map-frame {
+    border-radius: 12px;
+  }
+
+  .closing-section {
+    min-height: 45vh;
+    padding: 58px 14px 76px;
   }
 
   .scroll-arrow {
