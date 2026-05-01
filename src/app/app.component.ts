@@ -4,10 +4,10 @@ import { WeddingInviteComponent } from './wedding-invite/wedding-invite.componen
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, WeddingInviteComponent],
+  imports: [WeddingInviteComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'wedding-site';
+  title = 'ShyluWedsGowtham';
 }

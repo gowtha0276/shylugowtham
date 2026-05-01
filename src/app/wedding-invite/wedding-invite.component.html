@@ -34,11 +34,10 @@
   <div class="curtain left-curtain"></div>
   <div class="curtain right-curtain"></div>
 
-  <button class="open-btn" (click)="openCurtain()"></button>
+  <button class="open-btn" (click)="openCurtain()" aria-label="Open invitation">
+    <span class="open-btn-heart">♥</span>
+  </button>
 </div>
-
-<!-- Spacer for scrolling -->
-<div class="spacer-section" [class.pre-open]="!isOpen"></div>
 
 <!-- Countdown Timer Section -->
 <section class="countdown-section" [class.show]="showCountdown" [class.pre-open]="!isOpen">
