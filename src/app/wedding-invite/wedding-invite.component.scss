@@ -10,8 +10,25 @@
   padding: 0;
   width: 100%;
   height: auto;
-  --section-bg: linear-gradient(135deg, #f4ead9 0%, #e5d6c2 100%);
-  --section-bg-mobile: linear-gradient(135deg, #faefe3 0%, #eedcc8 100%);
+ --section-bg: 
+  linear-gradient(rgba(244,234,217,0.92), rgba(229,214,194,0.92)),
+  url('../../assets/bg.png');
+
+--section-bg-mobile: 
+  linear-gradient(rgba(250,239,227,0.95), rgba(238,220,200,0.95)),
+  url('../../assets/bg.png');
+
+  background-size: cover;
+background-repeat: repeat;
+background-position: center;
+}
+
+.countdown-section,
+.scratch-section,
+.timeline-section,
+.venue-section,
+.closing-section {
+  background: var(--section-bg);
 }
 
 html {
