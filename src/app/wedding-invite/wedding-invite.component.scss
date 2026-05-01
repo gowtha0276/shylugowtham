@@ -11,11 +11,11 @@
   width: 100%;
   height: auto;
  --section-bg: 
-  linear-gradient(rgba(244,234,217,0.35), rgba(229,214,194,0.35)),
+  linear-gradient(rgba(244,234,217,0.70), rgba(229,214,194,0.70)),
   url('../../assets/bg.png');
 
 --section-bg-mobile: 
-  linear-gradient(rgba(250,239,227,0.35), rgba(238,220,200,0.35)),
+  linear-gradient(rgba(250,239,227,0.70), rgba(238,220,200,0.70)),
   url('../../assets/bg.png');
 
   background-size: 260px;
@@ -27,6 +27,7 @@ background-position: center;
 .scratch-section,
 .timeline-section,
 .venue-section,
+.gallery-section,
 .closing-section {
   background: var(--section-bg);
 }
