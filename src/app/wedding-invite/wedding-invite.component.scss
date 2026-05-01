@@ -671,6 +671,19 @@ html {
   padding-bottom: 0;
 }
 
+.timeline-img {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.timeline-car {
+  width: 300px;      /* control width */
+  height: auto;      /* maintain ratio */
+  max-width: 100%;   /* responsive */
+  object-fit: contain;
+}
+
 .timeline-entry::before {
   content: '';
   position: absolute;
