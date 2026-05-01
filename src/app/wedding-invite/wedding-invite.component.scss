@@ -797,10 +797,10 @@ html {
     radial-gradient(circle at top, rgba(255,255,255,0.15), transparent 35%),
     repeating-linear-gradient(
       90deg,
-      #5b0000 0px,
-      #7a0000 30px,
-      #470000 60px,
-      #7a0000 90px
+      #d4c4a8 0px,
+      #e5d6c2 30px,
+      #c4b499 60px,
+      #e5d6c2 90px
     );
   box-shadow: inset -10px 0 25px rgba(0,0,0,0.4);
   transition: transform 2.2s ease-in-out;
@@ -844,6 +844,14 @@ html {
   box-shadow: 0 8px 25px rgba(0,0,0,0.22);
   transition: all 0.4s ease;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .open-btn {
+    width: 80px;
+    height: 58px;
+    border-width: 1px;
+  }
 }
 
 .open-btn::before {
