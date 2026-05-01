@@ -1055,6 +1055,10 @@ html {
 }
 
 @media (max-width: 768px) {
+  .main-container {
+    height: 88svh;
+  }
+
   .welcome {
     font-size: 0.85rem;
     letter-spacing: 2px;
@@ -1219,6 +1223,10 @@ html {
 }
 
 @media (max-width: 480px) {
+  .main-container {
+    height: 82svh;
+  }
+
   .welcome {
     font-size: 0.8rem;
     letter-spacing: 2px;
