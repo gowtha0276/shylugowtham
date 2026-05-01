@@ -45,15 +45,25 @@ export class WeddingInviteComponent implements OnInit, AfterViewInit, OnDestroy 
     'assets/130.webp',
   ];
   selectedImage: string | null = null;
+  private preloadedImages: HTMLImageElement[] = [];
 
   ngOnInit(): void {
     window.scrollTo({ top: 0, behavior: 'auto' });
     document.body.style.overflowY = 'hidden';
 
+    this.preloadGalleryImages();
     this.updateCountdown();
     setInterval(() => {
       this.updateCountdown();
     }, 1000);
+  }
+
+  preloadGalleryImages(): void {
+    this.preloadedImages = this.images.map((src) => {
+      const img = new Image();
+      img.src = src;
+      return img;
+    });
   }
 
   ngAfterViewInit(): void {
