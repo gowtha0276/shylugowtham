@@ -200,6 +200,47 @@
   </div>
 </section>
 
+<!-- Gallery Section -->
+<section class="gallery-section" [class.pre-open]="!isOpen">
+  <div class="gallery-container">
+    <div class="gallery-header">
+      <h2 class="gallery-label">
+        <span class="gallery-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="img" class="icon-svg">
+            <rect x="4" y="6" width="16" height="12" rx="2" ry="2" />
+            <circle cx="8.5" cy="10.5" r="1.5" />
+            <path d="M4 16l3-4 4 5 3-4 5 7" />
+          </svg>
+        </span>
+        <span class="gallery-text">Gallery</span>
+      </h2>
+      <div class="elegant-divider gallery-divider">
+        <div class="line-left"></div>
+        <div class="tiny-heart">♥</div>
+        <div class="line-right"></div>
+      </div>
+    </div>
+
+    <div class="gallery-row">
+      <div
+        class="gallery-item"
+        *ngFor="let image of images; let i = index"
+        [class.large]="i % 3 === 0"
+        (click)="openGalleryImage(image)"
+        [style.backgroundImage]="'url(' + image + ')'"
+        aria-label="Open gallery image"
+      ></div>
+    </div>
+  </div>
+
+  <div class="gallery-modal" *ngIf="selectedImage" (click)="closeGalleryImage()">
+    <div class="gallery-modal-card" (click)="$event.stopPropagation()">
+      <button class="gallery-close" (click)="closeGalleryImage()" aria-label="Close gallery">×</button>
+      <img [src]="selectedImage" alt="Selected gallery image" />
+    </div>
+  </div>
+</section>
+
 <!-- Closing Message Section -->
 <section class="closing-section" [class.pre-open]="!isOpen">
   <div class="closing-container">

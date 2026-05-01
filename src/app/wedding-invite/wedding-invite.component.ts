@@ -1,4 +1,5 @@
 import { Component, HostListener, OnDestroy, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 declare var confetti: any;
 
@@ -6,7 +7,8 @@ declare var confetti: any;
   selector: 'app-wedding-invite',
   templateUrl: './wedding-invite.component.html',
   styleUrls: ['./wedding-invite.component.scss'],
-  standalone: true
+  standalone: true,
+  imports: [CommonModule]
 })
 export class WeddingInviteComponent implements OnInit, AfterViewInit, OnDestroy {
   isOpen = false;
@@ -27,6 +29,19 @@ export class WeddingInviteComponent implements OnInit, AfterViewInit, OnDestroy 
   hours = 0;
   minutes = 0;
   seconds = 0;
+  images = [
+    'assets/couple2.webp',
+    'assets/couple3.webp',
+    'assets/couple4.webp',
+    'assets/couple2.webp',
+    'assets/couple3.webp',
+    'assets/couple4.webp',
+    'assets/couple2.webp',
+    'assets/couple3.webp',
+    'assets/couple4.webp',
+    'assets/couple2.webp'
+  ];
+  selectedImage: string | null = null;
 
   ngOnInit(): void {
     window.scrollTo({ top: 0, behavior: 'auto' });
@@ -293,5 +308,13 @@ export class WeddingInviteComponent implements OnInit, AfterViewInit, OnDestroy 
     this.hours = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     this.minutes = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
     this.seconds = Math.floor((gap % (1000 * 60)) / 1000);
+  }
+
+  openGalleryImage(image: string): void {
+    this.selectedImage = image;
+  }
+
+  closeGalleryImage(): void {
+    this.selectedImage = null;
   }
 }
