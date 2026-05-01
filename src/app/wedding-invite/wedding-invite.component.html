@@ -79,10 +79,57 @@
   </div>
 </section>
 
+<!-- Scratch Card Section -->
+<section class="scratch-section" [class.completed]="scratchCompleted" [class.pre-open]="!isOpen">
+  <div class="scratch-container">
+    <div class="scratch-section-header">
+      <div class="scratch-section-title">
+        {{ scratchCompleted ? 'Our forever begins' : 'Scratch to reveal' }}
+      </div>
+      <div class="elegant-divider scratch-divider">
+        <div class="line-left"></div>
+        <div class="tiny-heart">♥</div>
+        <div class="line-right"></div>
+      </div>
+    </div>
+
+    <div class="scratch-card" [class.completed]="scratchCompleted">
+      <div class="scratch-card-inner">
+        <div class="scratch-card-message">
+          <div class="scratch-card-result">
+            <div class="invite-line">You're invited</div>
+            <div class="invite-date">June 18 2026</div>
+            <div class="invite-time">Morning 7am</div>
+          </div>
+        </div>
+
+        <canvas
+          #scratchCanvas
+          class="scratch-canvas"
+          (pointerdown)="startScratch($event)"
+          (pointermove)="scratchMove($event)"
+          (pointerup)="endScratch()"
+          (pointercancel)="endScratch()"
+          (pointerleave)="endScratch()"
+        ></canvas>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
 <!-- Timeline Section -->
 <section class="timeline-section" [class.pre-open]="!isOpen">
   <div class="timeline-container">
-    <div class="timeline-icon" aria-hidden="true">🗓️</div>
+    <div class="timeline-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" role="img" class="icon-svg">
+        <rect x="4" y="5" width="16" height="15" rx="2" ry="2" />
+        <path d="M4 9h16" />
+        <path d="M8 2v4" />
+        <path d="M16 2v4" />
+      </svg>
+    </div>
     <h2 class="timeline-label">Timeline</h2>
     <div class="elegant-divider">
       <div class="line-left"></div>
@@ -113,7 +160,15 @@
 <!-- Venue Section -->
 <section class="venue-section" [class.pre-open]="!isOpen">
   <div class="venue-container">
-    <h2 class="venue-label">Venue</h2>
+    <h2 class="venue-label">
+      <span class="venue-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" role="img" class="icon-svg">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+          <circle cx="12" cy="9" r="2.5" />
+        </svg>
+      </span>
+      <span class="venue-text">Venue</span>
+    </h2>
     <div class="elegant-divider">
       <div class="line-left"></div>
       <div class="tiny-heart">♥</div>
