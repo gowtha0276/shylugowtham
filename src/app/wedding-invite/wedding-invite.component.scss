@@ -11,14 +11,14 @@
   width: 100%;
   height: auto;
  --section-bg: 
-  linear-gradient(rgba(244,234,217,0.92), rgba(229,214,194,0.92)),
+  linear-gradient(rgba(244,234,217,0.35), rgba(229,214,194,0.35)),
   url('../../assets/bg.png');
 
 --section-bg-mobile: 
-  linear-gradient(rgba(250,239,227,0.95), rgba(238,220,200,0.95)),
+  linear-gradient(rgba(250,239,227,0.35), rgba(238,220,200,0.35)),
   url('../../assets/bg.png');
 
-  background-size: cover;
+  background-size: 260px;
 background-repeat: repeat;
 background-position: center;
 }
@@ -825,7 +825,7 @@ html {
   justify-content: center;
   text-align: center;
   position: relative;
-  z-index: 11;
+  z-index: 0;
 }
 
 .closing-container {
