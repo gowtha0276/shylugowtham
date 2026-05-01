@@ -1055,6 +1055,10 @@ html {
 }
 
 @media (max-width: 768px) {
+  .main-container.open {
+    height: 88svh;
+  }
+
   .background-image {
     inset: 0 auto auto 0;
     width: 100%;
@@ -1225,6 +1229,10 @@ html {
 }
 
 @media (max-width: 480px) {
+  .main-container.open {
+    height: 82svh;
+  }
+
   .background-image {
     height: 82svh;
   }
