@@ -30,16 +30,19 @@ export class WeddingInviteComponent implements OnInit, AfterViewInit, OnDestroy 
   minutes = 0;
   seconds = 0;
   images = [
-    'assets/couple2.webp',
-    'assets/couple3.webp',
-    'assets/couple4.webp',
-    'assets/couple2.webp',
-    'assets/couple3.webp',
-    'assets/couple4.webp',
-    'assets/couple2.webp',
-    'assets/couple3.webp',
-    'assets/couple4.webp',
-    'assets/couple2.webp'
+    'assets/10.webp',
+    'assets/20.webp',
+    'assets/30.webp',
+    'assets/40.webp',
+    'assets/50.webp',
+    'assets/60.webp',
+    'assets/70.webp',
+    'assets/80.webp',
+    'assets/90.webp',
+    'assets/100.webp',
+    'assets/110.webp',
+    'assets/120.webp',
+    'assets/130.webp',
   ];
   selectedImage: string | null = null;
 
