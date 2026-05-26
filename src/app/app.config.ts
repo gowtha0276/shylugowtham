@@ -2,7 +2,7 @@ import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
-import { provideAnalytics, getAnalytics } from '@angular/fire/analytics';
+import { provideAnalytics, getAnalytics, ScreenTrackingService } from '@angular/fire/analytics';
 
 import { routes } from './app.routes';
 
@@ -21,6 +21,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
-    provideAnalytics(() => getAnalytics())
+    provideAnalytics(() => getAnalytics()),
+    ScreenTrackingService
   ]
 };
