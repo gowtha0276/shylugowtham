@@ -207,11 +207,10 @@ html {
   font-family: 'Playfair Display', serif;
   font-weight: 400;
 }
-
 .scroll-indicator {
   position: absolute;
-  bottom: max(34px, 6vh);
   left: 50%;
+  top: 68%;
   transform: translateX(-50%);
   z-index: 3;
   display: flex;
